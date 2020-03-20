@@ -9,9 +9,18 @@
 	http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<beans>
-		<bean id="joinController" class="controller.JoinController">
+		<bean id="joinController" class="join.controller.JoinController">
 			<property name="service" ref="joinService"></property>
 		</bean>
+		<bean id="loginController" class="join.controller.LoginController">
+			<property name="service" ref="joinService"></property>
+		</bean>
+		
+		<bean id="mypageController" class="mypage.controller.MypageController">
+			<property name="mypageService" ref="mypageService"></property>
+			<property name="joinService" ref="joinService"></property>
+		</bean>
+		<bean id="sendEmailController" class="sendEmail.SendEmailController"></bean>
 	</beans>
 
 </beans>

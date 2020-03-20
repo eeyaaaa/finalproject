@@ -7,7 +7,9 @@
 <title>회원가입 완료</title>
 </head>
 <body>
-회원가입 완료<br>
-<input type="submit" value="home으로 이동"> <input type="submit" value="로그인하기">  
+${user.usercode}님 1M 회원이 되신것을 축하드립니다!!!<br>
+<input type="button" value="home으로 이동"> 
+<input type="button" value="로그인하기" 
+	onclick="location.href= '${pageContext.request.contextPath}/login/login'">
 </body>
 </html>

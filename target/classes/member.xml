@@ -29,10 +29,10 @@
 	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="configLocation" value="classpath:config/mybatis-config.xml" />
+		<property name="configLocation" value="classpath:joinConfig/mybatis-config.xml" />
 		<property name="mapperLocations">
 			<list>
-				<value>classpath:config/sqlmap-member.xml</value>
+				<value>classpath:joinConfig/sqlmap-member.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -42,13 +42,17 @@
 		<constructor-arg ref="sqlSessionFactory" />
 	</bean>
 	
-	<bean id="joinService" class="service.JoinServiceImpl">
+	<bean id="joinService" class="join.service.JoinServiceImpl">
 		<property name="joinDao" ref="joinDao"></property>	
 	</bean>
 	
-	<bean id="joinDao" class="service.JoinDao">
+	<bean id="joinDao" class="join.service.JoinDao">
 		<property name="sqlSessionTemplate" ref="sqlSessionTemplate"></property>
 	</bean>
-	<bean id="member" class="member.Member">
+	<bean id="member" class="join.member.Member">
+	</bean>
+	
+	<bean id="mypageService" class="mypage.service.MypageServiceImpl">
+		<property name="joinDao" ref="joinDao" ></property>
 	</bean>
 </beans>
